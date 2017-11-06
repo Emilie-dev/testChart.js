@@ -10,10 +10,24 @@ var myBarChart = new Chart(ctx, {
             label: "Nationalities",
             backgroundColor: 'rgb(0, 128, 255)',
             borderColor: 'rgb(0, 128, 255)',
-            data: [55, 10, 5, 2, 20, 30, 45],
+            data: [55, 35, 68, 67, 45, 31, 80],
         }]
     },
 
     // Configuration options go here
-    options: {}
+    options: {
+    // We add a title to the chart
+          title: {
+            display: true,
+            value: 'top',
+            text: 'testChart.js',
+            fontSize: 35,
+            fontFamily : 'Arial',
+            fontStyle : 'bold', 
+        },
+    // We add an animation to the chart
+        animation: {
+            duration: 1000,
+            }
+    }
 });
