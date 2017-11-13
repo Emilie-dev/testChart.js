@@ -58,26 +58,38 @@ var myPieChart = new Chart(ctx1, {
 });
 
 
-// testGender/////////////////////////////////////
+//Age
+var age_20=0;
+var age_30=0;
+var age_40=0;
+var age_50=0;
+var age_60=0;
 
 
+for (var j = 0; j < results.length; j++) {
+    var curRow = results[j];
 
 
+    if(curRow[2] === "20s" ) {
+        age_20++;
+    }else if(curRow[2] === "30s" ) {
+        age_30++;
+    }else if (curRow[2] === "40s") {
+        age_40++;
+    }else if (curRow[2] === "50s" ) {
+        age_50++;
+    }else{
+        age_60++;
+    }
 
 
-
-
-
-
-
-
-// testAge
+}
 var ctx2 = document.getElementById('testAge').getContext('2d');
 var myPieChart = new Chart(ctx2, {
     type: 'pie',
     data : {
         datasets: [{
-            data: [37, 24, 10, 4, 4],
+            data: [age_20, age_30, age_40, age_50, age_60],
             backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple'],
             label: 'What\'s your age'
         
