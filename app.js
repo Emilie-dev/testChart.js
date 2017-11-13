@@ -143,3 +143,72 @@ var myBarChart = new Chart(ctx3, {
             }
     }
 });
+
+
+// testQ1
+var ctx4 = document.getElementById('testQ1').getContext('2d');
+var myPieChart = new Chart(ctx4, {
+    type: 'pie',
+    data : {
+        datasets: [{
+            data: [38, 53],
+            backgroundColor: ['blue', 'red'],
+            label: 'testQ1'
+        
+        }],
+
+        labels: [
+            'Yes',
+            'No'
+        ]    
+
+    },
+
+    options: {
+    // We add a title to the chart
+          title: {
+            display: true,
+            value: 'top',
+            text: 'testQ1',
+            fontSize: 25,
+            fontFamily : 'Arial',
+            fontStyle : 'bold', 
+        }
+}
+
+});
+
+
+
+var ctx5 = document.getElementById('Q1bis').getContext('2d');
+var myBarChart = new Chart(ctx5, {
+    // The type of chart we want to create
+    type: 'horizontalBar',
+
+    // The data for our dataset
+    data: {
+        labels: ["Sapporo City", "Iwate Prefecture, Kamaishi City", "Tokyo Metropolitan", "Saitama Prefecture, Kumagaya City", "Kanagawa Prefecture, Yokohama City", "Shizuoka Prefecture", "Aichi Prefecture, Toyota City", "Kobe City ", "Osaka Prefecture, Higashi-Osaka City", "Fukuoka Prefecture, Fukuoka City", "Kumamoto Prefecture, Kumamoto City", "Oita Prefecture"],
+        datasets: [{
+            backgroundColor: 'rgb(0, 128, 255)',
+            borderColor: 'rgb(0, 128, 255)',
+            data: [55, 35, 68, 67, 45, 31, 80],
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+    // We add a title to the chart
+          title: {
+            display: true,
+            value: 'top',
+            text: 'testChart.js',
+            fontSize: 35,
+            fontFamily : 'Arial',
+            fontStyle : 'bold', 
+        },
+    // We add an animation to the chart
+        animation: {
+            duration: 1000,
+            }
+    }
+});
