@@ -1,49 +1,35 @@
+//GENDER
 
-var ctx0 = document.getElementById('myChart').getContext('2d');
-var myBarChart = new Chart(ctx0, {
-    // The type of chart we want to create
-    type: 'horizontalBar',
+var gender_male=0;
+var gender_not_say=0;
+var gender_female=0;
+var gender_other=0;
 
-    // The data for our dataset
-    data: {
-        labels: ["Japonese", "Chinese", "French", "UK", "Italy", "Corean", "New-Zealand"],
-        datasets: [{
-            label: "Nationalities",
-            backgroundColor: 'rgb(0, 128, 255)',
-            borderColor: 'rgb(0, 128, 255)',
-            data: [55, 35, 68, 67, 45, 31, 80],
-        }]
-    },
 
-    // Configuration options go here
-    options: {
-    // We add a title to the chart
-          title: {
-            display: true,
-            value: 'top',
-            text: 'testChart.js',
-            fontSize: 35,
-            fontFamily : 'Arial',
-            fontStyle : 'bold', 
-        },
-    // We add an animation to the chart
-        animation: {
-            duration: 1000,
-            }
+for (var i = 0; i < results.length; i++) {
+    var curRow = results[i];
+
+
+    if(curRow[1] ==='Female' ) {
+        gender_female++;
+    }else if(curRow[1] ==='Male') {
+        gender_male ++;
+    }else if (curRow[1]==='Other') {
+        gender_other++;
+    }else{
+        gender_not_say++;
     }
-});
 
 
+}
 
-
-// testGender
 var ctx1 = document.getElementById('testGender').getContext('2d');
 var myPieChart = new Chart(ctx1, {
     type: 'pie',
     data : {
         datasets: [{
-            data: [25, 43, 0, 0],
-            backgroundColor: ['red', 'blue', 'yellow', 'green'],
+            data: [gender_female, gender_male, gender_not_say, gender_other],
+            backgroundColor: ['#66aa11', 'blue', 'yellow', 'green'],
             label: 'What\'s your gender'
         
         }],
@@ -70,6 +56,17 @@ var myPieChart = new Chart(ctx1, {
 }
 
 });
+
+
+// testGender/////////////////////////////////////
+
+
+
+
+
+
+
+
 
 
 
