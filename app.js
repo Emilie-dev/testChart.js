@@ -20,7 +20,6 @@ for (var i = 0; i < results.length; i++) {
         gender_not_say++;
     }
 
-
 }
 
 var ctx1 = document.getElementById('testGender').getContext('2d');
@@ -31,7 +30,7 @@ var myPieChart = new Chart(ctx1, {
             data: [gender_female, gender_male, gender_not_say, gender_other],
             backgroundColor: ['#66aa11', 'blue', 'yellow', 'green'],
             label: 'What\'s your gender'
-        
+
         }],
 
         labels: [
@@ -40,38 +39,26 @@ var myPieChart = new Chart(ctx1, {
             'Prefer not to say',
             'Other'
         ]    
-
     },
 
     options: {
-    // We add a title to the chart
-          title: {
+// We add a title to the chart
+        title: {
             display: true,
             value: 'top',
-            text: 'testGender',
+            text: 'Gender',
             fontSize: 25,
             fontFamily : 'Arial',
             fontStyle : 'bold', 
         }
-}
-
+    }
 });
 
 
-// testGender/////////////////////////////////////
+// GENDER
 
 
-
-
-
-
-
-
-
-
-
-
-// testAge
+// AGE /////
 var ctx2 = document.getElementById('testAge').getContext('2d');
 var myPieChart = new Chart(ctx2, {
     type: 'pie',
@@ -98,7 +85,7 @@ var myPieChart = new Chart(ctx2, {
           title: {
             display: true,
             value: 'top',
-            text: 'testAge',
+            text: 'Age',
             fontSize: 25,
             fontFamily : 'Arial',
             fontStyle : 'bold', 
@@ -107,39 +94,70 @@ var myPieChart = new Chart(ctx2, {
 
 });
 
+//NAIONALITY//////
 
-// testNationalities
+var uniqueNationality= [];
+
+for (var k = 0; k < results.length; k++) {
+    var curRow = results[k];
+    var nationality = curRow[3].toLowerCase();
+    nationality = nationality.trim();
+
+    if(uniqueNationality[nationality] === undefined) {
+     uniqueNationality[nationality]=0;
+     uniqueNationality[nationality]++;
+
+    }else{
+        uniqueNationality[nationality]++;
+    }
+}
+
+// console.log(Object.keys(uniqueNationality));
+// console.log(uniqueNationality);
+// console.log(Object.values(uniqueNationality));
+
+//random colors for the charts
+var colors =Object.values(uniqueNationality).map(function(){
+    return "#" + Math.random().toString(16).slice(2, 8);
+});
+
+
 var ctx3 = document.getElementById('testNationalities').getContext('2d');
 var myBarChart = new Chart(ctx3, {
-    // The type of chart we want to create
-    type: 'bar',
+// The type of chart we want to create
+type: 'bar',
+// The data for our dataset
+data: {
+    labels: Object.keys(uniqueNationality),
+    datasets: [{
+        backgroundColor: colors,
+        data: Object.values(uniqueNationality),
+    }]
+},
 
-    // The data for our dataset
-    data: {
-        labels: ["Canada", "Chine", "France", "Irlande", "Kurdistan", "Tunisie", "Royaume-Uni", "USA",  ],
-        datasets: [{
-            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple', 'orange', 'lightblue', 'pink'],
-            data: [2, 18, 41, 1, 1, 1, 14, 2],
-        }]
+// Configuration options go here
+options: {
+    legend: {
+        display: false,
     },
-
-    // Configuration options go here
-    options: {
-    // We add a title to the chart
-          title: {
-            display: true,
-            value: 'top',
-            text: 'testNationalities',
-            fontSize: 25,
-            fontFamily : 'Arial',
-            fontStyle : 'bold', 
-        },
-    // We add an animation to the chart
-        animation: {
-            duration: 1000,
-            }
-    }
+// We add a title to the chart
+title: {
+    display: true,
+    value: 'top',
+    text: 'Nationalities',
+    fontSize: 25,
+    fontFamily : 'Arial',
+    fontStyle : 'bold', 
+},
+// We add an animation to the chart
+animation: {
+    duration: 1000,
+}
+}
 });
+
+
+
 
 
 // testQ1
