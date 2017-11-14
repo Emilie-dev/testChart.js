@@ -545,68 +545,429 @@ var myBarChart1 = new Chart(ctx9, {
 
 ////Q4
 
-var q1_sapporo=0;
-var q1_iwate=0;
-var q1_tokyo=0;
-var q1_saitama=0;
-var q1_kanagawa=0;
-var q1_shizuoka=0;
-var q1_aichi=0; 
-var q1_kobe=0;
-var q1_osaka=0;
-var q1_fukuoka=0;
-var q1_kumamoto=0;
-var q1_oita=0;
+var q4_unesco=0;
+var q4_cuisine=0;
+var q4_sake=0;
+var q4_nature=0;
+var q4_tourist_sites=0;
+var q4_festivals=0;
+var q4_trains=0;
+var q4_springs=0;
+var q4_shopping=0;
+var q4_sports=0;
+var q4_events=0;
+var q4_people=0;
+var q4_tsunami=0;
+var q4_culture=0;
 
-for (var m = 0; m < results.length; m++) {
-     var curRow = results[m];
 
 
-    if(curRow[5].includes("Sapporo City")) {
-        q1_sapporo++;
+for (var r = 0; r < results.length; r++) {
+     var curRow = results[r];
+
+
+    if(curRow[26].includes("to visit UNESCO World Heritage Sites")) {
+        q4_unesco++;
     }
 
-    if (curRow[5].includes("Iwate Prefecture, Kamaishi City")) {
-        q1_iwate++;
+    if (curRow[26].includes("to enjoy traditional cuisine")) {
+        q4_cuisine++;
     }
 
-    if (curRow[5].includes("Tokyo Metropolitan")) {
-        q1_tokyo++;
+    if (curRow[26].includes("to enjoy Japanese sake (alcohol)")) {
+        q4_sake++;
     }
 
-    if (curRow[5].includes("Saitama Prefecture, Kumagaya City")) {
-        q1_saitama++;
+    if (curRow[26].includes("to experience naturey")) {
+        q4_nature++;
     }
 
-    if (curRow[5].includes("Kanagawa Prefecture, Yokohama City")) {
-        q1_kanagawa++;
+    if (curRow[26].includes("to visit tourist sites")) {
+        q4_tourist_sites++;
     }
 
-    if (curRow[5].includes("Shizuoka Prefecture")) {
-        q1_shizuoka++;
+    if (curRow[26].includes("to see local festivals")) {
+        q4_festivals++;
     }
 
-    if (curRow[5].includes("Aichi Prefecture, Toyota City")) {
-        q1_aichi++;
+    if (curRow[26].includes("to ride local trains")) {
+        q4_trains++;
     }
 
-    if (curRow[5].includes("Kobe City")) {
-        q1_kobe++;
+    if (curRow[26].includes("to enjoy hot springs")) {
+        q4_springs++;
     } 
 
-    if (curRow[5].includes("Osaka Prefecture, Higashi-Osaka City")) {
-        q1_osaka++;
+    if (curRow[26].includes("to go shopping")) {
+        q4_shopping++;
     } 
 
-    if (curRow[5].includes("Fukuoka Prefecture, Fukuoka City")) {
-        q1_fukuoka++;
+    if (curRow[26].includes("to watch sports")) {
+        q4_sports++;
     } 
 
-    if (curRow[5].includes("Kumamoto Prefecture, Kumamoto City")) {
-        q1_kumamoto++;
+    if (curRow[26].includes("to participate in hands-on experiences/events")) {
+        q4_events++;
     } 
 
-    if (curRow[5].includes("Oita Prefecture")) {
-        q1_oita++;
+    if (curRow[26].includes("to meet local people")) {
+        q4_people++;
+    }
+
+    if (curRow[26].includes("to learn about the earthquake/tsunami disaster")) {
+        q4_tsunami++;
+    }
+    
+    if (curRow[26].includes("to learn about local history and culture")) {
+        q4_culture++;
+    }
+}
+
+
+var ctx10 = document.getElementById('Q4').getContext('2d');
+var myBarChart4 = new Chart(ctx10, {
+    // The type of chart we want to create
+    type: 'horizontalBar',
+
+    // The data for our dataset
+    data: {
+        labels: ["to visit UNESCO World Heritage Sites", "to enjoy traditional cuisine", "to enjoy Japanese sake (alcohol)", "to experience naturey", "to visit tourist sites", "to ride local trains","to enjoy hot springs","to go shopping","to watch sports","to participate in hands-on experiences/events","to meet local people","to learn about the earthquake/tsunami disaster","to learn about local history and culture"],
+        datasets: [{
+            backgroundColor: 'rgb(0, 128, 255)',
+            borderColor: 'rgb(0, 128, 255)',
+            data: [q4_unesco, q4_cuisine, q4_sake, q4_nature, q4_tourist_sites, q4_festivals,q4_trains,q4_springs,q4_shopping,q4_sports,q4_events,q4_people,q4_tsunami,q4_culture],
+            // label: '# of visits'
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        legend: {
+            display: false
+        },
+    // We add a title to the chart
+        title: {
+            display: true,
+            value: 'top',
+            text: 'Q4',
+            fontSize: 35,
+            fontFamily : 'Arial',
+            fontStyle : 'bold', 
+        },
+    // We add an animation to the chart
+        animation: {
+            duration: 1000,
+        }
+    }
+});
+
+////Q5
+
+var q5_never=0;
+var q5_once=0;
+var q5_3times=0;
+var q5_5times=0;
+var q5_more6times=0;
+
+for(var s = 0; s < results.length;s++){
+    var curRow= results[s];
+    switch(curRow[27]){
+        case 'never':
+        q5_never++;
+        break;
+        case 'once':
+        q5_once++;
+        break;
+        case '2～3 times':
+        q5_3times++;
+        break;
+        case '4～5 times':
+        q5_5times++;
+        break;
+        case 'more than 6 times':
+        q5_more6times++;
+        break;
+    }
+}
+
+var ctx11 = document.getElementById('Q5').getContext('2d');
+var myPieChart5 = new Chart(ctx11, {
+    type: 'pie',
+    data: {
+        labels: ['never', 'once', '2～3 times', '4～5 times', 'more than 6 times'],
+        datasets: [{
+            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple'],
+            label: 'Q5',
+            data:[q5_never, q5_once, q5_3times, q5_5times, q5_more6times]
+
+        }],
+        options: {
+        // We add a title to the chart
+            title: {
+                display: true,
+                value: 'top',
+                text: 'Q5',
+                fontSize: 25,
+                fontFamily : 'Arial',
+                fontStyle : 'bold', 
+            },
+
+        },
+        animation: {
+            duration: 1000,
+        }
+    }
+});
+
+//Q6
+
+var q6_1_day=0;
+var q6_3_days=0;
+var q6_6_days=0;
+var q6_1_week=0;
+var q6_2_weeks=0;
+var q6_more_2_weeks=0;
+
+for(var t = 0; t < results.length;t++){
+    var curRow= results[t];
+    switch(curRow[28]){
+        case '1 day':
+        q6_1_day++;
+        break;
+        case '2～3 days':
+        q6_3_days++;
+        break;
+        case '4～6 days':
+        q6_6_days++;
+        break;
+        case '1 week':
+        q6_1_week++;
+        break;
+        case '2 week':
+        q6_2_weeks++;
+        break;
+        case 'more than 2 weeks':
+        q6_more_2_weeks++;
+        break;
+    }
+}
+
+var ctx12 = document.getElementById('Q6').getContext('2d');
+var myPieChart6 = new Chart(ctx12, {
+    type: 'pie',
+    data: {
+        labels: ['1 day', '2～3 days', '4～6 days', '1 week', '2 week','more than 2 weeks'],
+        datasets: [{
+            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple', 'orange'],
+            label: 'Q6',
+            data:[q6_1_day, q6_3_days, q6_6_days, q6_1_week, q6_2_weeks,q6_more_2_weeks]
+
+        }],
+        options: {
+        // We add a title to the chart
+            title: {
+                display: true,
+                value: 'top',
+                text: 'Q6',
+                fontSize: 25,
+                fontFamily : 'Arial',
+                fontStyle : 'bold', 
+            },
+
+        },
+        animation: {
+            duration: 1000,
+        }
+    }
+});
+
+////Q7////////////////////
+
+var q7_by_yourself=0;
+var q7_with_friends=0;
+var q7_with_family=0;
+var q7_as_a_couple=0;
+var q7_in_a_group=0;
+var q7_other=0;
+
+for(var u = 0; u < results.length;u++){
+    var curRow= results[u];
+    switch(curRow[29]){
+        case 'by yourself':
+        q7_by_yourself++;
+        break;
+        case 'with friends':
+        q7_with_friends++;
+        break;
+        case 'with family':
+        q7_with_family++;
+        break;
+        case 'as a couple':
+        q7_as_a_couple++;
+        break;
+        case 'in a group':
+        q7_in_a_group++;
+        break;
+        case 'other':
+        q7_other++;
+        break;
+    }
+}
+
+var ctx13 = document.getElementById('Q7').getContext('2d');
+var myPieChart7 = new Chart(ctx13, {
+    type: 'pie',
+    data: {
+        labels: ['by yourself', 'with friends', 'with family', 'as a couple', 'in a group','other'],
+        datasets: [{
+            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple', 'orange'],
+            label: 'Q7',
+            data:[q7_by_yourself, q7_with_friends, q7_with_family, q7_as_a_couple, q7_in_a_group,q7_other]
+
+        }],
+        options: {
+        // We add a title to the chart
+            title: {
+                display: true,
+                value: 'top',
+                text: 'Q7',
+                fontSize: 25,
+                fontFamily : 'Arial',
+                fontStyle : 'bold', 
+            },
+
+        },
+        animation: {
+            duration: 1000,
+        }
+    }
+});
+
+///////Q8
+
+var q8_stay_in_one_place=0;
+var q8_stay_in_multiple_cities=0;
+
+
+for(var v = 0; v < results.length;v++){
+    var curRow= results[v];
+    switch(curRow[30]){
+        case 'stay in one place':
+        q8_stay_in_one_place++;
+        break;
+        case 'stay in multiple cities':
+        q8_stay_in_multiple_cities++;
+        break;
+    }
+}
+
+var ctx14 = document.getElementById('Q7bis').getContext('2d');
+var myPieChart8 = new Chart(ctx14, {
+    type: 'pie',
+    data: {
+        labels: ['stay in one place', 'stay in multiple cities'],
+        datasets: [{
+            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple', 'orange'],
+            label: 'Q7bis',
+            data:[q8_stay_in_one_place, q8_stay_in_multiple_cities]
+
+        }],
+        options: {
+        // We add a title to the chart
+            title: {
+                display: true,
+                value: 'top',
+                text: 'Q7bis',
+                fontSize: 25,
+                fontFamily : 'Arial',
+                fontStyle : 'bold', 
+            },
+
+        },
+        animation: {
+            duration: 1000,
+        }
+    }
+});
+
+
+////Q8
+
+
+var q4_unesco=0;
+var q4_cuisine=0;
+var q4_sake=0;
+var q4_nature=0;
+var q4_tourist_sites=0;
+var q4_festivals=0;
+var q4_trains=0;
+var q4_springs=0;
+var q4_shopping=0;
+var q4_sports=0;
+var q4_events=0;
+var q4_people=0;
+var q4_tsunami=0;
+var q4_culture=0;
+
+
+
+for (var r = 0; r < results.length; r++) {
+     var curRow = results[r];
+
+
+    if(curRow[26].includes("to visit UNESCO World Heritage Sites")) {
+        q4_unesco++;
+    }
+
+    if (curRow[26].includes("to enjoy traditional cuisine")) {
+        q4_cuisine++;
+    }
+
+    if (curRow[26].includes("to enjoy Japanese sake (alcohol)")) {
+        q4_sake++;
+    }
+
+    if (curRow[26].includes("to experience naturey")) {
+        q4_nature++;
+    }
+
+    if (curRow[26].includes("to visit tourist sites")) {
+        q4_tourist_sites++;
+    }
+
+    if (curRow[26].includes("to see local festivals")) {
+        q4_festivals++;
+    }
+
+    if (curRow[26].includes("to ride local trains")) {
+        q4_trains++;
+    }
+
+    if (curRow[26].includes("to enjoy hot springs")) {
+        q4_springs++;
+    } 
+
+    if (curRow[26].includes("to go shopping")) {
+        q4_shopping++;
+    } 
+
+    if (curRow[26].includes("to watch sports")) {
+        q4_sports++;
+    } 
+
+    if (curRow[26].includes("to participate in hands-on experiences/events")) {
+        q4_events++;
+    } 
+
+    if (curRow[26].includes("to meet local people")) {
+        q4_people++;
+    }
+
+    if (curRow[26].includes("to learn about the earthquake/tsunami disaster")) {
+        q4_tsunami++;
+    }
+    
+    if (curRow[26].includes("to learn about local history and culture")) {
+        q4_culture++;
     }
 }
