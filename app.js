@@ -631,7 +631,7 @@ var myBarChart4 = new Chart(ctx10, {
 
     // The data for our dataset
     data: {
-        labels: ["to visit UNESCO World Heritage Sites", "to enjoy traditional cuisine", "to enjoy Japanese sake (alcohol)", "to experience naturey", "to visit tourist sites", "to ride local trains","to enjoy hot springs","to go shopping","to watch sports","to participate in hands-on experiences/events","to meet local people","to learn about the earthquake/tsunami disaster","to learn about local history and culture"],
+        labels: ["to visit UNESCO World Heritage Sites", "to enjoy traditional cuisine", "to enjoy Japanese sake (alcohol)", "to experience naturey", "to visit tourist sites", "to see local festivals","to ride local trains","to enjoy hot springs","to go shopping","to watch sports","to participate in hands-on experiences/events","to meet local people","to learn about the earthquake/tsunami disaster","to learn about local history and culture"],
         datasets: [{
             backgroundColor: 'rgb(0, 128, 255)',
             borderColor: 'rgb(0, 128, 255)',
@@ -894,80 +894,474 @@ var myPieChart8 = new Chart(ctx14, {
 ////Q8
 
 
-var q4_unesco=0;
-var q4_cuisine=0;
-var q4_sake=0;
-var q4_nature=0;
-var q4_tourist_sites=0;
-var q4_festivals=0;
-var q4_trains=0;
-var q4_springs=0;
-var q4_shopping=0;
-var q4_sports=0;
-var q4_events=0;
-var q4_people=0;
-var q4_tsunami=0;
-var q4_culture=0;
+var q8_official_tourism_websites=0;
+var q8_word_of_mouth=0;
+var q8_social_media=0;
+var q8_blogs=0;
+var q8_youtube=0;
+var q8_travel_agencies=0;
+var q8_travel_guidebooks=0;
+var q8_tv=0;
+var q8_magazines=0;
+var q8_friends=0;
+var q8_other=0;
 
 
 
-for (var r = 0; r < results.length; r++) {
-     var curRow = results[r];
+
+for (var w = 0; w < results.length; w++) {
+     var curRow = results[w];
 
 
-    if(curRow[26].includes("to visit UNESCO World Heritage Sites")) {
-        q4_unesco++;
+    if(curRow[31].includes("official tourism websites")) {
+        q8_official_tourism_websites++;
     }
 
-    if (curRow[26].includes("to enjoy traditional cuisine")) {
-        q4_cuisine++;
+    if (curRow[31].includes("word-of-mouth")) {
+        q8_word_of_mouth++;
     }
 
-    if (curRow[26].includes("to enjoy Japanese sake (alcohol)")) {
-        q4_sake++;
+    if (curRow[31].includes("social media")) {
+        q8_social_media++;
     }
 
-    if (curRow[26].includes("to experience naturey")) {
-        q4_nature++;
+    if (curRow[31].includes("blogs")) {
+        q8_blogs++;
     }
 
-    if (curRow[26].includes("to visit tourist sites")) {
-        q4_tourist_sites++;
+    if (curRow[31].includes("video-sharing websites（Youtube）")) {
+        q8_youtube++;
     }
 
-    if (curRow[26].includes("to see local festivals")) {
-        q4_festivals++;
+    if (curRow[31].includes("travel agencies")) {
+        q8_travel_agencies++;
     }
 
-    if (curRow[26].includes("to ride local trains")) {
-        q4_trains++;
+    if (curRow[31].includes("travel guidebooks")) {
+        q8_travel_guidebooks++;
     }
 
-    if (curRow[26].includes("to enjoy hot springs")) {
-        q4_springs++;
+    if (curRow[31].includes("T.V")) {
+        q8_tv++;
     } 
 
-    if (curRow[26].includes("to go shopping")) {
-        q4_shopping++;
+    if (curRow[31].includes("magazines")) {
+        q8_magazines++;
     } 
 
-    if (curRow[26].includes("to watch sports")) {
-        q4_sports++;
+    if (curRow[31].includes("friends")) {
+        q8_friends++;
     } 
 
-    if (curRow[26].includes("to participate in hands-on experiences/events")) {
-        q4_events++;
+    if (curRow[31].includes("other")) {
+        q8_other++;
     } 
 
-    if (curRow[26].includes("to meet local people")) {
-        q4_people++;
-    }
-
-    if (curRow[26].includes("to learn about the earthquake/tsunami disaster")) {
-        q4_tsunami++;
-    }
-    
-    if (curRow[26].includes("to learn about local history and culture")) {
-        q4_culture++;
-    }
 }
+
+var ctx15 = document.getElementById('Q8').getContext('2d');
+var myBarChart5 = new Chart(ctx15, {
+    // The type of chart we want to create
+    type: 'horizontalBar',
+
+    // The data for our dataset
+    data: {
+        labels: ["official tourism websites", "word-of-mouth", "social media", "blogs", "video-sharing websites（Youtube）", "travel agencies","travel guidebooks","T.V","magazines","friends","other"],
+        datasets: [{
+            backgroundColor: 'rgb(0, 128, 255)',
+            borderColor: 'rgb(0, 128, 255)',
+            data: [q8_official_tourism_websites, q8_word_of_mouth, q8_social_media, q8_blogs, q8_youtube, q8_travel_agencies,q8_travel_guidebooks,q8_tv,q8_magazines,q8_friends,q8_other],
+            // label: '# of visits'
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        legend: {
+            display: false
+        },
+    // We add a title to the chart
+        title: {
+            display: true,
+            value: 'top',
+            text: 'Q8',
+            fontSize: 35,
+            fontFamily : 'Arial',
+            fontStyle : 'bold', 
+        },
+    // We add an animation to the chart
+        animation: {
+            duration: 1000,
+        }
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Q11 ///////
+
+
+var q11_free_Wi_Fi_spots=0;
+var q11_transport_information=0;
+var q11_accommodation_facilities=0;
+var q11_bars_and_restaurants=0;
+var q11_shopping_facilities=0;
+var q11_tourism_facilities=0;
+var q11_souvenir_shops=0;
+var q11_tourist_events=0;
+var q11_ATM_locations=0;
+var q11_currency_exchange_locations=0;
+var Q11_rugby_match_schedules_results=0;
+
+
+
+
+for (var z = 0; z < results.length; z++) {
+     var curRow = results[z];
+
+
+    if(curRow[34].includes("free Wi-Fi spots")) {
+        q11_free_Wi_Fi_spots++;
+    }
+
+    if (curRow[34].includes("transport information")) {
+        q11_transport_information++;
+    }
+
+    if (curRow[34].includes("accommodation facilities")) {
+        q11_accommodation_facilities++;
+    }
+
+    if (curRow[34].includes("bars and restaurants")) {
+        q11_bars_and_restaurants++;
+    }
+
+    if (curRow[34].includes("shopping facilities")) {
+        q11_shopping_facilities++;
+    }
+
+    if (curRow[34].includes("tourism facilities")) {
+        q11_tourism_facilities++;
+    }
+
+    if (curRow[34].includes("souvenir shops")) {
+        q11_souvenir_shops++;
+    }
+
+    if (curRow[34].includes("tourist events")) {
+        q11_tourist_events++;
+    } 
+
+    if (curRow[34].includes("ATM locations")) {
+        q11_ATM_locations++;
+    } 
+
+    if (curRow[34].includes("currency exchange locations")) {
+        q11_currency_exchange_locations++;
+    } 
+
+    if (curRow[34].includes("rugby match schedules/results")) {
+        Q11_rugby_match_schedules_results++;
+    } 
+
+}
+
+var ctx18 = document.getElementById('Q11').getContext('2d');
+var myBarChart8 = new Chart(ctx18, {
+    // The type of chart we want to create
+    type: 'horizontalBar',
+
+    // The data for our dataset
+    data: {
+        labels: ["free Wi-Fi spots", "transport information", "accommodation facilities", "bars and restaurants", "shopping facilities", "tourism facilities","souvenir shops","tourist events","ATM locations","currency exchange locations","rugby match schedules/results"],
+        datasets: [{
+            backgroundColor: 'rgb(0, 128, 255)',
+            borderColor: 'rgb(0, 128, 255)',
+            data: [q11_free_Wi_Fi_spots, q11_transport_information, q11_accommodation_facilities, q11_bars_and_restaurants, q11_shopping_facilities, q11_tourism_facilities,q11_souvenir_shops,q11_tourist_events,q11_ATM_locations,q11_currency_exchange_locations,Q11_rugby_match_schedules_results],
+            // label: '# of visits'
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        legend: {
+            display: false
+        },
+    // We add a title to the chart
+        title: {
+            display: true,
+            value: 'top',
+            text: 'Q11',
+            fontSize: 35,
+            fontFamily : 'Arial',
+            fontStyle : 'bold', 
+        },
+    // We add an animation to the chart
+        animation: {
+            duration: 1000,
+        }
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Q13 ///////
+var q13_Train=0;
+var q13_Bus=0;
+var q13_Taxi=0;
+var q13_Rental_car=0;
+var q13_unsure=0;
+
+
+
+
+
+for (var ab = 0; ab < results.length; ab++) {
+     var curRow = results[ab];
+
+
+    if(curRow[36].includes("Train")) {
+        q13_Train++;
+    }
+
+    if (curRow[36].includes("Bus")) {
+        q13_Bus++;
+    }
+
+    if (curRow[36].includes("Taxi")) {
+        q13_Taxi++;
+    }
+
+    if (curRow[36].includes("Rental car")) {
+        q13_Rental_car++;
+    }
+
+    if (curRow[36].includes("unsure")) {
+        q13_unsure++;
+    }
+
+}
+
+var ctx20 = document.getElementById('Q13').getContext('2d');
+var myBarChart10 = new Chart(ctx20, {
+    // The type of chart we want to create
+    type: 'horizontalBar',
+
+    // The data for our dataset
+    data: {
+        labels: ["Train", "Bus", "Taxi", "Rental car", "unsure"],
+        datasets: [{
+            backgroundColor: 'rgb(0, 128, 255)',
+            borderColor: 'rgb(0, 128, 255)',
+            data: [q13_Train, q13_Bus, q13_Taxi, q13_Rental_car, q13_unsure],
+            // label: '# of visits'
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        legend: {
+            display: false
+        },
+    // We add a title to the chart
+        title: {
+            display: true,
+            value: 'top',
+            text: 'Q13',
+            fontSize: 35,
+            fontFamily : 'Arial',
+            fontStyle : 'bold', 
+        },
+    // We add an animation to the chart
+        animation: {
+            duration: 1000,
+        }
+    }
+});
