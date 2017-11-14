@@ -1,11 +1,17 @@
-//GENDER
+var colors = ['#CE163B', '#A8A10B', '#EF8601', '#5C0B2D', '#FACD00', '#FBB379', '#1C4458', '#FF6DEC','#E65FF5', '#F73DD5', '#7AB4B4', '#218870'];
+
+
+// var colors = [];
+// for (var colorCount = 0; colorCount < 40 ; colorCount++) {
+//     colors.push("#" + Math.random().toString(16).slice(2, 8));
+// }
 
 var gender_male=0;
 var gender_not_say=0;
 var gender_female=0;
 var gender_other=0;
 
-
+console.log(results.length);
 for (var i = 0; i < results.length; i++) {
     var curRow = results[i];
 
@@ -28,7 +34,7 @@ var myPieChart = new Chart(ctx1, {
     data : {
         datasets: [{
             data: [gender_female, gender_male, gender_not_say, gender_other],
-            backgroundColor: ['#66aa11', 'blue', 'yellow', 'green'],
+            backgroundColor: colors,
             label: 'What\'s your gender'
 
         }],
@@ -89,7 +95,7 @@ var myPieChart1 = new Chart(ctx2, {
     data : {
         datasets: [{
             data: [age_20, age_30, age_40, age_50, age_60],
-            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple'],
+            backgroundColor: colors,
             label: 'What\'s your age'
         
         }],
@@ -141,9 +147,7 @@ for (var k = 0; k < results.length; k++) {
 // console.log(Object.values(uniqueNationality));
 
 //random colors for the charts
-var colors =Object.values(uniqueNationality).map(function(){
-    return "#" + Math.random().toString(16).slice(2, 8);
-});
+
 
 
 var ctx3 = document.getElementById('testNationalities').getContext('2d');
@@ -205,7 +209,7 @@ var myPieChart2 = new Chart(ctx4, {
     data : {
         datasets: [{
             data: [answer1Yes, answer1No],
-            backgroundColor: ['blue', 'red'],
+            backgroundColor: colors,
             label: 'Q1 - Are you aware that Twelve cities in Japan has been selected as a Rugby WorldCup 2019　Host City?'
         
         }],
@@ -250,6 +254,7 @@ var q1_oita=0;
 for (var m = 0; m < results.length; m++) {
      var curRow = results[m];
 
+ 
 
     if(curRow[5].includes("Sapporo City")) {
         q1_sapporo++;
@@ -259,11 +264,12 @@ for (var m = 0; m < results.length; m++) {
         q1_iwate++;
     }
 
-    if (curRow[5].includes("Tokyo Metropolitan")) {
+    if ( curRow[5].includes("Tokyo Metropolitan") ) {
         q1_tokyo++;
     }
 
     if (curRow[5].includes("Saitama Prefecture, Kumagaya City")) {
+        console.log('++');
         q1_saitama++;
     }
 
@@ -312,7 +318,7 @@ var myBarChart2 = new Chart(ctx5, {
     data: {
         labels: ["Sapporo City", "Iwate Prefecture, Kamaishi City", "Tokyo Metropolitan", "Saitama Prefecture, Kumagaya City", "Kanagawa Prefecture, Yokohama City", "Shizuoka Prefecture", "Aichi Prefecture, Toyota City", "Kobe City ", "Osaka Prefecture, Higashi-Osaka City", "Fukuoka Prefecture, Fukuoka City", "Kumamoto Prefecture, Kumamoto City", "Oita Prefecture"],
         datasets: [{
-            backgroundColor: 'rgb(0, 128, 255)',
+            backgroundColor: colors,
             borderColor: 'rgb(0, 128, 255)',
             data: [q1_sapporo, q1_iwate, q1_tokyo, q1_saitama, q1_kanagawa, q1_shizuoka, q1_aichi, q1_kobe, q1_osaka, q1_fukuoka, q1_kumamoto, q1_oita],
             label: 'City'
@@ -357,7 +363,7 @@ var myPieChart3 = new Chart(ctx6, {
     data: {
         labels: ['Yes', 'No'],
         datasets: [{
-            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple'],
+            backgroundColor: colors,
             label: 'Q2',
             data:[Q2_yes, Q2_no]
 
@@ -420,7 +426,7 @@ var myBarChart3 = new Chart(ctx7, {
     data: {
         labels: ["Sapporo City", "Iwate Prefecture, Kamaishi City", "Tokyo Metropolitan", "Saitama Prefecture, Kumagaya City", "Kanagawa Prefecture, Yokohama City", "Shizuoka Prefecture", "Aichi Prefecture, Toyota City", "Kobe City ", "Osaka Prefecture, Higashi-Osaka City", "Fukuoka Prefecture, Fukuoka City", "Kumamoto Prefecture, Kumamoto City", "Oita Prefecture"],
         datasets: [{
-            backgroundColor: 'rgb(0, 128, 255)',
+            backgroundColor: colors,
             borderColor: 'rgb(0, 128, 255)',
             data: [q2_sapporo, q2_iwate, q2_tokyo, q2_saitama, q2_kanagawa, q2_shizuoka, q2_aichi, q2_kobe, q2_osaka, q2_fukuoka, q2_kumamoto, q2_oita],
             label: '# of visits'
@@ -465,7 +471,7 @@ var myPieChart4 = new Chart(ctx8, {
     data: {
         labels: ['Yes', 'No'],
         datasets: [{
-            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple'],
+            backgroundColor: colors,
             label: 'Q2',
             data:[Q3_yes, Q3_no]
 
@@ -517,7 +523,7 @@ var myBarChart1 = new Chart(ctx9, {
     data: {
         labels: ["Aomori Prefecture", "Iwate Prefecture", "Miyagi Prefecture", "Akita Prefecture", "Yamagata Prefecture", "Fukushima_Prefecture"],
         datasets: [{
-            backgroundColor: 'rgb(0, 128, 255)',
+            backgroundColor: colors,
             borderColor: 'rgb(0, 128, 255)',
             data: [q3_Aomori_Prefecture, q3_Iwate_Prefecture, q3_Miyagi_Prefecture, q3_Akita_Prefecture, q3_Yamagata_Prefecture, q3_Fukushima_Prefecture],
             label: '# of visits'
@@ -578,7 +584,7 @@ for (var r = 0; r < results.length; r++) {
         q4_sake++;
     }
 
-    if (curRow[26].includes("to experience naturey")) {
+    if (curRow[26].includes("to experience nature")) {
         q4_nature++;
     }
 
@@ -633,7 +639,7 @@ var myBarChart4 = new Chart(ctx10, {
     data: {
         labels: ["to visit UNESCO World Heritage Sites", "to enjoy traditional cuisine", "to enjoy Japanese sake (alcohol)", "to experience naturey", "to visit tourist sites", "to see local festivals","to ride local trains","to enjoy hot springs","to go shopping","to watch sports","to participate in hands-on experiences/events","to meet local people","to learn about the earthquake/tsunami disaster","to learn about local history and culture"],
         datasets: [{
-            backgroundColor: 'rgb(0, 128, 255)',
+            backgroundColor: colors,
             borderColor: 'rgb(0, 128, 255)',
             data: [q4_unesco, q4_cuisine, q4_sake, q4_nature, q4_tourist_sites, q4_festivals,q4_trains,q4_springs,q4_shopping,q4_sports,q4_events,q4_people,q4_tsunami,q4_culture],
             // label: '# of visits'
@@ -696,7 +702,7 @@ var myPieChart5 = new Chart(ctx11, {
     data: {
         labels: ['never', 'once', '2～3 times', '4～5 times', 'more than 6 times'],
         datasets: [{
-            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple'],
+            backgroundColor: colors,
             label: 'Q5',
             data:[q5_never, q5_once, q5_3times, q5_5times, q5_more6times]
 
@@ -758,7 +764,7 @@ var myPieChart6 = new Chart(ctx12, {
     data: {
         labels: ['1 day', '2～3 days', '4～6 days', '1 week', '2 week','more than 2 weeks'],
         datasets: [{
-            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple', 'orange'],
+            backgroundColor: colors,
             label: 'Q6',
             data:[q6_1_day, q6_3_days, q6_6_days, q6_1_week, q6_2_weeks,q6_more_2_weeks]
 
@@ -820,7 +826,7 @@ var myPieChart7 = new Chart(ctx13, {
     data: {
         labels: ['by yourself', 'with friends', 'with family', 'as a couple', 'in a group','other'],
         datasets: [{
-            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple', 'orange'],
+            backgroundColor: colors,
             label: 'Q7',
             data:[q7_by_yourself, q7_with_friends, q7_with_family, q7_as_a_couple, q7_in_a_group,q7_other]
 
@@ -867,7 +873,7 @@ var myPieChart8 = new Chart(ctx14, {
     data: {
         labels: ['stay in one place', 'stay in multiple cities'],
         datasets: [{
-            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple', 'orange'],
+            backgroundColor: colors,
             label: 'Q7bis',
             data:[q7bis_stay_in_one_place, q7bis_stay_in_multiple_cities]
 
@@ -968,7 +974,7 @@ var myBarChart5 = new Chart(ctx15, {
     data: {
         labels: ["official tourism websites", "word-of-mouth", "social media", "blogs", "video-sharing websites（Youtube）", "travel agencies","travel guidebooks","T.V","magazines","friends","other"],
         datasets: [{
-            backgroundColor: 'rgb(0, 128, 255)',
+            backgroundColor: colors,
             borderColor: 'rgb(0, 128, 255)',
             data: [q8_official_tourism_websites, q8_word_of_mouth, q8_social_media, q8_blogs, q8_youtube, q8_travel_agencies,q8_travel_guidebooks,q8_tv,q8_magazines,q8_friends,q8_other],
             // label: '# of visits'
@@ -1018,7 +1024,7 @@ var myPieChart9 = new Chart(ctx16, {
     data: {
         labels: ['through a travel agent', 'independently'],
         datasets: [{
-            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple', 'orange'],
+            backgroundColor: colors,
             label: 'Q9',
             data:[q9_travel_agent, q9_independently]
 
@@ -1087,7 +1093,7 @@ var myBarChart10 = new Chart(ctx17, {
     data: {
         labels: ["smartphone", "tablet", "PC", "tourist guidebooks", "tourist information signs", "tourist information centers"],
         datasets: [{
-            backgroundColor: 'rgb(0, 128, 255)',
+            backgroundColor: colors,
             borderColor: 'rgb(0, 128, 255)',
             data: [q10_smartphone, q10_tablet, q10_PC, q10_guidebooks, q10_info_signs, q10_info_centers],
             // label: '# of visits'
@@ -1193,7 +1199,7 @@ var myBarChart8 = new Chart(ctx18, {
     data: {
         labels: ["free Wi-Fi spots", "transport information", "accommodation facilities", "bars and restaurants", "shopping facilities", "tourism facilities","souvenir shops","tourist events","ATM locations","currency exchange locations","rugby match schedules/results"],
         datasets: [{
-            backgroundColor: 'rgb(0, 128, 255)',
+            backgroundColor: colors,
             borderColor: 'rgb(0, 128, 255)',
             data: [q11_free_Wi_Fi_spots, q11_transport_information, q11_accommodation_facilities, q11_bars_and_restaurants, q11_shopping_facilities, q11_tourism_facilities,q11_souvenir_shops,q11_tourist_events,q11_ATM_locations,q11_currency_exchange_locations,Q11_rugby_match_schedules_results],
             // label: '# of visits'
@@ -1264,7 +1270,7 @@ var myBarChart12 = new Chart(ctx19, {
     data: {
         labels: ["lack of Wi-Fi", "lack of English signage in stations and tourist sites", "public transport difficulties", "lack of credit card payment facilities", "lack of English on tourist information websites."],
         datasets: [{
-            backgroundColor: 'rgb(0, 128, 255)',
+            backgroundColor: colors,
             borderColor: 'rgb(0, 128, 255)',
             data: [q12_lack_WiFi, q12_lack_english_signage, q12_transport_difficulties, q12_lack_card_payment, q12_lack_english_websites],
             // label: '# of visits'
@@ -1340,7 +1346,7 @@ var myBarChart10 = new Chart(ctx20, {
     data: {
         labels: ["Train", "Bus", "Taxi", "Rental car", "unsure"],
         datasets: [{
-            backgroundColor: 'rgb(0, 128, 255)',
+            backgroundColor: colors,
             borderColor: 'rgb(0, 128, 255)',
             data: [q13_Train, q13_Bus, q13_Taxi, q13_Rental_car, q13_unsure],
             // label: '# of visits'
@@ -1394,7 +1400,7 @@ var myPieChart14 = new Chart(ctx21, {
     data: {
         labels: ['Yes', 'No'],
         datasets: [{
-            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple', 'orange'],
+            backgroundColor: colors,
             label: 'Q14',
             data:[q14_yes, q14_no]
 
@@ -1440,7 +1446,7 @@ var myPieChart11 = new Chart(ctx21, {
     data: {
         labels: ['Yes', 'No'],
         datasets: [{
-            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple'],
+            backgroundColor: colors,
             label: 'Q15',
             data:[Q15_yes, Q15_no]
 
@@ -1487,7 +1493,7 @@ var myPieChart17 = new Chart(ctx23, {
     data: {
         labels: ['Yes', 'No'],
         datasets: [{
-            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple', 'orange'],
+            backgroundColor: colors,
             label: 'Q17',
             data:[q17_yes, q17_no]
 
