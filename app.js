@@ -845,18 +845,18 @@ var myPieChart7 = new Chart(ctx13, {
 
 ///////Q8
 
-var q8_stay_in_one_place=0;
-var q8_stay_in_multiple_cities=0;
+var q7bis_stay_in_one_place=0;
+var q7bis_stay_in_multiple_cities=0;
 
 
 for(var v = 0; v < results.length;v++){
     var curRow= results[v];
     switch(curRow[30]){
         case 'stay in one place':
-        q8_stay_in_one_place++;
+        q7bis_stay_in_one_place++;
         break;
         case 'stay in multiple cities':
-        q8_stay_in_multiple_cities++;
+        q7bis_stay_in_multiple_cities++;
         break;
     }
 }
@@ -869,7 +869,7 @@ var myPieChart8 = new Chart(ctx14, {
         datasets: [{
             backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple', 'orange'],
             label: 'Q7bis',
-            data:[q8_stay_in_one_place, q8_stay_in_multiple_cities]
+            data:[q7bis_stay_in_one_place, q7bis_stay_in_multiple_cities]
 
         }],
         options: {
