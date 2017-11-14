@@ -1376,6 +1376,47 @@ var myBarChart10 = new Chart(ctx20, {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //// Q15
 var Q15_yes = 0;
 var Q15_no = 0;
