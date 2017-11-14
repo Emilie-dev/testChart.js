@@ -1369,55 +1369,59 @@ var myBarChart10 = new Chart(ctx20, {
 });
 
 
+
+
 //// Q14
+var q14_yes = 0;
+var q14_no = 0;
 
 
+for(var ac = 0; ac < results.length; ac++){
+    var curRow = results[ac];
+    switch(curRow[37]){
+        case 'Yes':
+        q14_yes++;
+        break;
+        case 'No':
+        q14_no++;
+        break;
+    }
+}
 
+var ctx21 = document.getElementById('Q14').getContext('2d');
+var myPieChart14 = new Chart(ctx21, {
+    type: 'pie',
+    data: {
+        labels: ['Yes', 'No'],
+        datasets: [{
+            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple', 'orange'],
+            label: 'Q14',
+            data:[q14_yes, q14_no]
 
+        }],
+        options: {
+        // We add a title to the chart
+            title: {
+                display: true,
+                value: 'top',
+                text: 'Q14',
+                fontSize: 25,
+                fontFamily : 'Arial',
+                fontStyle : 'bold', 
+            },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        },
+        animation: {
+            duration: 1000,
+        }
+    }
+});
 
 //// Q15
+
+
+
+
 var Q15_yes = 0;
 var Q15_no = 0;
 
@@ -1447,6 +1451,53 @@ var myPieChart11 = new Chart(ctx21, {
                 display: true,
                 value: 'top',
                 text: 'Q15',
+                fontSize: 25,
+                fontFamily : 'Arial',
+                fontStyle : 'bold', 
+            },
+
+        },
+        animation: {
+            duration: 1000,
+        }
+    }
+});
+
+
+//// Q17
+var q17_yes = 0;
+var q17_no = 0;
+
+
+for(var ae = 0; ae < results.length; ae++){
+    var curRow = results[ae];
+    switch(curRow[42]){
+        case 'Yes':
+        q17_yes++;
+        break;
+        case 'No':
+        q17_no++;
+        break;
+    }
+}
+
+var ctx23 = document.getElementById('Q17').getContext('2d');
+var myPieChart17 = new Chart(ctx23, {
+    type: 'pie',
+    data: {
+        labels: ['Yes', 'No'],
+        datasets: [{
+            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple', 'orange'],
+            label: 'Q17',
+            data:[q17_yes, q17_no]
+
+        }],
+        options: {
+        // We add a title to the chart
+            title: {
+                display: true,
+                value: 'top',
+                text: 'Q17',
                 fontSize: 25,
                 fontFamily : 'Arial',
                 fontStyle : 'bold', 
