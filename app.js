@@ -1371,3 +1371,49 @@ var myBarChart10 = new Chart(ctx20, {
 
 //// Q14
 
+
+
+
+
+
+//// Q15
+var Q15_yes = 0;
+var Q15_no = 0;
+
+for (var ad = 0; ad < results.length; ad++) {
+    var curRow = results[ad];
+    if (curRow[38]==='Yes') {
+        Q15_yes++;
+    }else {
+        Q15_no++;
+    }
+}
+
+var ctx21 = document.getElementById('Q15').getContext('2d');
+var myPieChart11 = new Chart(ctx21, {
+    type: 'pie',
+    data: {
+        labels: ['Yes', 'No'],
+        datasets: [{
+            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple'],
+            label: 'Q15',
+            data:[Q15_yes, Q15_no]
+
+        }],
+        options: {
+        // We add a title to the chart
+            title: {
+                display: true,
+                value: 'top',
+                text: 'Q15',
+                fontSize: 25,
+                fontFamily : 'Arial',
+                fontStyle : 'bold', 
+            },
+
+        },
+        animation: {
+            duration: 1000,
+        }
+    }
+});
