@@ -971,3 +971,404 @@ for (var r = 0; r < results.length; r++) {
         q4_culture++;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////Q9
+
+var q9_travel_agent = 0;
+var q9_independently = 0;
+
+for (var x = 0; x < results.length; x++) {
+    var curRow = results[x];
+
+    if (curRow[32] === "through a travel agent") {
+        q9_travel_agent++;
+    }else {
+        q9_independently++;
+    }
+}
+
+var ctx16 = document.getElementById('Q9').getContext('2d');
+var myPieChart9 = new Chart(ctx16, {
+    type: 'pie',
+    data: {
+        labels: ['through a travel agent', 'independently'],
+        datasets: [{
+            backgroundColor: ['blue', 'red', 'yellow', 'green', 'purple', 'orange'],
+            label: 'Q9',
+            data:[q9_travel_agent, q9_independently]
+
+        }],
+        options: {
+        // We add a title to the chart
+            title: {
+                display: true,
+                value: 'top',
+                text: 'Q9',
+                fontSize: 25,
+                fontFamily : 'Arial',
+                fontStyle : 'bold', 
+            },
+
+        },
+        animation: {
+            duration: 1000,
+        }
+    }
+});
+
+
+////Q10
+var q10_smartphone = 0;
+var q10_tablet = 0;
+var q10_PC = 0;
+var q10_guidebooks = 0;
+var q10_info_signs　= 0;
+var q10_info_centers = 0;
+
+for (var y = 0; y < results.length; y++) {
+    var curRow = results[y];
+
+    if(curRow[33].includes("smartphone")) {
+        q10_smartphone++;
+    }
+
+    if (curRow[33].includes("tablet")) {
+        q10_tablet++;
+    }
+
+    if (curRow[33].includes("PC")) {
+        q10_PC++;
+    }
+
+    if (curRow[33].includes("tourist guidebooks")) {
+        q10_guidebooks++;
+    }
+
+    if (curRow[33].includes("tourist information signs")) {
+        q10_info_signs++;
+    }
+
+    if (curRow[33].includes("tourist information centers")) {
+        q10_info_centers++;
+    }
+}
+
+var ctx17 = document.getElementById('Q10').getContext('2d');
+var myBarChart10 = new Chart(ctx17, {
+    // The type of chart we want to create
+    type: 'horizontalBar',
+
+    // The data for our dataset
+    data: {
+        labels: ["smartphone", "tablet", "PC", "tourist guidebooks", "tourist information signs", "tourist information centers"],
+        datasets: [{
+            backgroundColor: 'rgb(0, 128, 255)',
+            borderColor: 'rgb(0, 128, 255)',
+            data: [q10_smartphone, q10_tablet, q10_PC, q10_guidebooks, q10_info_signs, q10_info_centers],
+            // label: '# of visits'
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        legend: {
+            display: false
+        },
+    // We add a title to the chart
+        title: {
+            display: true,
+            value: 'top',
+            text: 'Q10',
+            fontSize: 35,
+            fontFamily : 'Arial',
+            fontStyle : 'bold', 
+        },
+    // We add an animation to the chart
+        animation: {
+            duration: 1000,
+        }
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////Q12 
+var q12_lack_WiFi = 0;
+var q12_lack_english_signage = 0;
+var q12_transport_difficulties = 0;
+var q12_lack_card_payment = 0;
+var q12_lack_english_websites　= 0;
+
+
+for (var aa = 0; aa < results.length; aa++) {
+    var curRow = results[aa];
+
+    if(curRow[35].includes("lack of Wi-Fi")) {
+        q12_lack_WiFi++;
+    }
+
+    if (curRow[35].includes("lack of English signage in stations and tourist sites")) {
+        q12_lack_english_signage++;
+    }
+
+    if (curRow[35].includes("public transport difficulties")) {
+        q12_transport_difficulties++;
+    }
+
+    if (curRow[35].includes("lack of credit card payment facilities")) {
+        q12_lack_card_payment++;
+    }
+
+    if (curRow[35].includes("lack of English on tourist information websites.")) {
+        q12_lack_english_websites++;
+    }
+}
+
+var ctx19 = document.getElementById('Q12').getContext('2d');
+var myBarChart12 = new Chart(ctx19, {
+    // The type of chart we want to create
+    type: 'horizontalBar',
+
+    // The data for our dataset
+    data: {
+        labels: ["lack of Wi-Fi", "lack of English signage in stations and tourist sites", "public transport difficulties", "lack of credit card payment facilities", "lack of English on tourist information websites."],
+        datasets: [{
+            backgroundColor: 'rgb(0, 128, 255)',
+            borderColor: 'rgb(0, 128, 255)',
+            data: [q12_lack_WiFi, q12_lack_english_signage, q12_transport_difficulties, q12_lack_card_payment, q12_lack_english_websites],
+            // label: '# of visits'
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        legend: {
+            display: false
+        },
+    // We add a title to the chart
+        title: {
+            display: true,
+            value: 'top',
+            text: 'Q12',
+            fontSize: 35,
+            fontFamily : 'Arial',
+            fontStyle : 'bold', 
+        },
+    // We add an animation to the chart
+        animation: {
+            duration: 1000,
+        }
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//// Q14
+
+
+
+
+
